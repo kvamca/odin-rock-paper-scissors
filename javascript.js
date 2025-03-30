@@ -27,7 +27,6 @@ function getHumanChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
-function playGame () {
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === choices[0] && computerChoice === choices[2]) {
         humanScore = humanScore + 1;
