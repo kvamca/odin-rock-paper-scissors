@@ -1,0 +1,32 @@
+body{
+    display: flex;
+    padding: 32px 8px;
+    flex-direction: column;
+    gap: 48px;
+
+}
+
+button {
+    background-color: forestgreen;
+    border: none;
+    border-radius: 32px;
+    padding: 16px 32px;
+    font-size: 16px;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: darkgreen;;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+}
+
+#gameButtons {
+    gap: 16px;
+    
+}

@@ -9,23 +9,48 @@ function getComputerChoice() {
     return choices[randomNumber];
 }
 
-//console.log(getComputerChoice());
-
+let humanChoice;
 function getHumanChoice() {
-    let humanChoice = prompt("What is your choice?")
-    if (humanChoice.toLowerCase() === choices[0]) {
-        return choices[0];
-    } else if (humanChoice.toLowerCase() === choices[1]){
-        return choices[1];
-    } else if (humanChoice.toLowerCase() === choices[2]) {
-        return choices[2];
-    } else alert("Please choose Rock, Paper or Scissors!")
+    let btnRock = document.querySelector("#rock");
+    let btnPaper = document.querySelector("#paper");
+    let btnScissors = document.querySelector("#scissors");
+
+    btnRock.addEventListener("click", (event) => {
+       humanChoice = "rock";
+       playGame();
+    });
+
+    btnPaper.addEventListener("click", (event) => {
+        humanChoice = "paper";
+        playGame();
+     });
+
+     btnScissors.addEventListener("click", (event) => {
+        humanChoice = "scissors";
+        playGame();
+     });
 }
 
-//getHumanChoice();
+getHumanChoice();
+
 
 let humanScore = 0;
 let computerScore = 0;
+
+
+function playGame () {
+    let computerChoice = getComputerChoice();
+
+if (humanScore < 3 && computerScore < 3) {
+    playRound(humanChoice, computerChoice);
+
+    if (humanScore === 3) {
+        console.log("Human Wins!");
+    } else if (computerScore === 3) {
+        console.log("Computer Wins!");
+    }
+}
+}
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === choices[0] && computerChoice === choices[2]) {
@@ -47,24 +72,15 @@ function playRound(humanChoice, computerChoice) {
         computerScore = computerScore + 1;
         console.log("Paper beats rock: Computer beats human");
     } else console.log("Tie!")
-}
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-console.log("computer plays: "+computerSelection);
-console.log("human plays: "+humanSelection);
-playRound(humanSelection, computerSelection);
-console.log("______________");
+    console.log("computer plays: " + computerChoice);
+    console.log("human plays: " + humanChoice);
 
-}
+    console.log("Current Score: Human " + humanScore + " - Computer " + computerScore);
+    console.log("______________");
 
-while (humanScore<=3 || computerScore<=3) {
-    if (humanScore === 3) {
-        console.log("Human Wins!");
-        break;
-    } else if (computerScore === 3){
-        console.log("Computer Wins!");
-        break;
-    } else playGame ();
+    // Reset humanChoice for the next selection
+    humanChoice = "";
+
 }
