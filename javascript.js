@@ -80,7 +80,6 @@ function playRound(humanChoice, computerChoice) {
     console.log("Current Score: Human " + humanScore + " - Computer " + computerScore);
     console.log("______________");
 
-    // Reset humanChoice for the next selection
     humanChoice = "";
 
 }
